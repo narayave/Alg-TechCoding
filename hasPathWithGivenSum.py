@@ -9,23 +9,29 @@
 # Code fights Trees: Basic
 
 def hasPathWithGivenSum(t, s):
-	# Possibly to recursively solve. 
+	# Possibly to recursively solve.
 	# Need to pass a branch of tree, and subtract value from sum
 
 	if t == None:
-		return False
+		if s == 0:
+			return True
+		else:
+			return False
+
 	s = s - t.value
 	print s
-	
+
 	if t.left == None and t.right == None:
 		if s == 0:
 			return True
 		else:
 			return False
-			
-	if t.left != None:				   # Left tree can be explored
-		print t.value, s
-		return hasPathWithGivenSum(t.left, s)
-	else:
-		print t.value, s
-		return hasPathWithGivenSum(t.right, s)
+
+	return hasPathWithGivenSum(t.left, s) or hasPathWithGivenSum(t.right, s)
+
+	# if t.left != None:				   # Left tree can be explored
+	# 	print t.value, s
+	# 	return hasPathWithGivenSum(t.left, s)
+	# else:
+	# 	print t.value, s
+	# 	return hasPathWithGivenSum(t.right, s)
