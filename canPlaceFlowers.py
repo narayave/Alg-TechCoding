@@ -45,3 +45,17 @@ class Solution:
             return True
         else:
             return False
+
+
+def canPlaceFlowers(self, flowerbed, n):
+    """
+        Simpler solution where 3 positions are checked at once
+    """
+    flowerbed = [0] + flowerbed + [0]
+    for i in range(1, len(flowerbed) - 1):
+        if not flowerbed[i] and not flowerbed[i - 1] and not flowerbed[i + 1]:
+            flowerbed[i] = 1
+            n -= 1
+        if n == 0:
+            return True
+    return True if n <= 0 else False
