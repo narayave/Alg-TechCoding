@@ -25,3 +25,9 @@ class Solution:
             return True
 
         return False
+
+# Another solution that is easier
+class Solution:
+    def rotateString(self, A: str, B: str) -> bool:
+
+        return (A in B+B) and len(A) == len(B)
